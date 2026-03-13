@@ -1,0 +1,64 @@
+.window-header {
+  height: 36px;
+  background: rgba(40, 40, 40, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 12px;
+  user-select: none;
+}
+
+.window-header.active {
+  background: rgba(50, 50, 50, 0.8);
+}
+
+.window-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #ddd;
+}
+
+.window-icon {
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.window-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.control-btn {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: transparent;
+  color: transparent;
+  transition: all 0.2s;
+  padding: 0;
+}
+
+.window-controls:hover .control-btn {
+  color: rgba(0,0,0,0.6);
+}
+
+.control-btn.minimize { background: #ffbd2e; }
+.control-btn.maximize { background: #28c940; }
+.control-btn.close { background: #ff5f56; }
+
+.window-content {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  background: rgba(20, 20, 20, 0.5);
+}

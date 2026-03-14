@@ -22,3 +22,9 @@ If you are developing a production application, we recommend using TypeScript wi
 - Monaco code editor
 - Safari-style browser
 - Notepad, Calculator, Settings
+
+## Setup
+```bash
+npm install
+npm run dev
+```

@@ -1,0 +1,9 @@
+:root {
+  --glass-bg: rgba(255,255,255,0.05);
+  --glass-border: rgba(255,255,255,0.12);
+  --glass-blur: blur(20px);
+  --shadow-window: 0 25px 60px rgba(0,0,0,0.6);
+  --accent: #0a84ff;
+  --danger: #ff453a;
+  --success: #30d158;
+}

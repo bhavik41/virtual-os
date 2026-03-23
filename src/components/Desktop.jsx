@@ -73,3 +73,5 @@ export default function Desktop() {
     </div>
   );
 }
+
+// Keyboard shortcut: Cmd+W closes active window

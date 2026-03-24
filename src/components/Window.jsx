@@ -103,3 +103,5 @@ export default function Window({ window: win }) {
     </Rnd>
   );
 }
+
+// Snap logic: detect edges and snap window position

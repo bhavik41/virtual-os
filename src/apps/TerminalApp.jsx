@@ -248,3 +248,5 @@ function MatrixRain({ onExit }) {
     </div>
   );
 }
+
+// navigator.clipboard.writeText() support added

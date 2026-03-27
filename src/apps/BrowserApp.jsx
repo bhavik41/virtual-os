@@ -743,3 +743,5 @@ function ContactTab() {
     </div>
   );
 }
+
+// Bookmarks: stored in localStorage under "vos-bookmarks"

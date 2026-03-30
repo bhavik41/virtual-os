@@ -271,3 +271,5 @@ export const useStore = create((set) => ({
     windows: state.windows.map(w => w.id === id ? { ...w, ...bounds } : w)
   }))
 }));
+
+// bringToFront: increments z-index of focused window

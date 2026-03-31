@@ -250,3 +250,5 @@ function MatrixRain({ onExit }) {
 }
 
 // navigator.clipboard.writeText() support added
+
+// Up/Down arrow key history navigation added

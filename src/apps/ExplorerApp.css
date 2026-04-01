@@ -1,0 +1,118 @@
+.explorer-app {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background: rgba(30, 30, 30, 0.9);
+  color: #eee;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.explorer-sidebar {
+  width: 220px;
+  background: rgba(20, 20, 20, 0.6);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 16px 0;
+}
+
+.sidebar-group {
+  margin-bottom: 20px;
+}
+
+.sidebar-group-title {
+  padding: 0 16px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #888;
+  letter-spacing: 0.5px;
+}
+
+.sidebar-item {
+  padding: 8px 16px;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sidebar-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-item.active {
+  background: rgba(59, 130, 246, 0.3);
+  color: #fff;
+  border-left: 3px solid #3b82f6;
+}
+
+.explorer-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.explorer-toolbar {
+  height: 44px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.path-bar {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 12px;
+  color: #ccc;
+  width: 100%;
+}
+
+.explorer-content {
+  flex: 1;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 20px;
+  align-content: start;
+  overflow-y: auto;
+}
+
+.explorer-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.explorer-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.item-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-icon.folder {
+  color: #60a5fa;
+}
+
+.item-icon.file {
+  color: #9ca3af;
+}
+
+.item-name {
+  font-size: 13px;
+  text-align: center;
+  word-break: break-word;
+}

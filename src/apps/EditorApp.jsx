@@ -71,3 +71,5 @@ export default function EditorApp() {
     </div>
   );
 }
+
+// Monaco: added JSX language support

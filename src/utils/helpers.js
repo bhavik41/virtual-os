@@ -4,3 +4,5 @@ export const sleep = ms => new Promise(r => setTimeout(r, ms));
 export const formatBytes = b => b < 1024 ? b+"B" : b < 1048576 ? (b/1024).toFixed(1)+"KB" : (b/1048576).toFixed(1)+"MB";
 
 // JSX syntax highlight patch
+
+// Explorer rename patch

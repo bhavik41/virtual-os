@@ -69,3 +69,5 @@ export default function ExplorerApp() {
     </div>
   );
 }
+
+// Double-click to rename file in explorer

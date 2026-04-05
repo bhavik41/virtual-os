@@ -273,3 +273,5 @@ export const useStore = create((set) => ({
 }));
 
 // bringToFront: increments z-index of focused window
+
+// useMemo applied to windowList selector

@@ -8,3 +8,5 @@ export function useWindowResize() {
   }, []);
   return size;
 }
+
+// Debounced resize handler (150ms)

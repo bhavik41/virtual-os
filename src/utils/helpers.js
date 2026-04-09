@@ -6,3 +6,5 @@ export const formatBytes = b => b < 1024 ? b+"B" : b < 1048576 ? (b/1024).toFixe
 // JSX syntax highlight patch
 
 // Explorer rename patch
+
+// react-window virtualisation for large file lists

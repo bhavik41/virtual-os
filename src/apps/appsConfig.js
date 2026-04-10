@@ -1,9 +1,26 @@
 import TerminalApp from './TerminalApp';
 import EditorApp from './EditorApp';
 import ExplorerApp from './ExplorerApp';
-import { Terminal, Code2, Folder } from 'lucide-react';
+import BrowserApp from './BrowserApp';
+import { Terminal, Code2, Folder, Globe } from 'lucide-react';
 
 export const apps = [
+  {
+    id: 'browser',
+    title: 'Safari',
+    icon: Globe,
+    component: BrowserApp,
+    defaultWidth: 1000,
+    defaultHeight: 700,
+  },
+  {
+    id: 'explorer',
+    title: 'Finder',
+    icon: Folder,
+    component: ExplorerApp,
+    defaultWidth: 800,
+    defaultHeight: 500,
+  },
   {
     id: 'terminal',
     title: 'Terminal',
@@ -14,18 +31,10 @@ export const apps = [
   },
   {
     id: 'editor',
-    title: 'Code Editor',
+    title: 'VS Code',
     icon: Code2,
     component: EditorApp,
     defaultWidth: 900,
     defaultHeight: 600,
-  },
-  {
-    id: 'explorer',
-    title: 'File Explorer',
-    icon: Folder,
-    component: ExplorerApp,
-    defaultWidth: 800,
-    defaultHeight: 500,
   }
 ];

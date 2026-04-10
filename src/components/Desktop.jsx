@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useStore } from '../store/useStore';
 import Window from './Window';
-import Taskbar from './Taskbar';
+import MenuBar from './MenuBar';
+import Dock from './Dock';
 import { apps } from '../apps/appsConfig';
 import './Desktop.css';
 
@@ -16,6 +17,8 @@ export default function Desktop() {
 
   return (
     <div className="desktop">
+      <MenuBar time={time} />
+      
       <div className="desktop-bg">
         <div className="gradient-blob blob-1"></div>
         <div className="gradient-blob blob-2"></div>
@@ -39,7 +42,7 @@ export default function Desktop() {
         ))}
       </div>
       
-      <Taskbar time={time} />
+      <Dock />
     </div>
   );
 }

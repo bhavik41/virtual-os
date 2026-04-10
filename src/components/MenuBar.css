@@ -1,0 +1,54 @@
+.menu-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  z-index: 10000;
+  color: #333;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+:root[color-scheme="dark"] .menu-bar, 
+body { /* Defaulting to dark mode looking slightly dark */ }
+
+.menu-left, .menu-right {
+  display: flex;
+  align-items: center;
+}
+
+.menu-item {
+  padding: 0 12px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.1s;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.menu-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.apple-icon {
+  padding: 0 16px 0 0;
+}
+
+.active-app-name {
+  font-weight: 700;
+  padding: 0 16px 0 0;
+}
+
+.clock {
+  padding-right: 0;
+}

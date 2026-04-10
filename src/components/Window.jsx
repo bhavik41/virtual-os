@@ -65,17 +65,15 @@ export default function Window({ window: win }) {
       minHeight={200}
     >
       <div className={`window-header ${isActive ? 'active' : ''}`} onDoubleClick={() => maximizeWindow(win.id)}>
-        <div className="window-title">
-          <span className="window-icon">{React.createElement(win.icon, { size: 16 })}</span>
+        <div className="window-controls-mac">
+          <button onClick={() => closeWindow(win.id)} className="mac-btn close"></button>
+          <button onClick={() => minimizeWindow(win.id)} className="mac-btn minimize"></button>
+          <button onClick={() => maximizeWindow(win.id)} className="mac-btn maximize"></button>
+        </div>
+        <div className="window-title-mac">
           <span>{win.title}</span>
         </div>
-        <div className="window-controls">
-          <button onClick={() => minimizeWindow(win.id)} className="control-btn minimize"><Minus size={14} /></button>
-          <button onClick={() => maximizeWindow(win.id)} className="control-btn maximize">
-            {win.isMaximized ? <Square size={12} /> : <Maximize2 size={12} />}
-          </button>
-          <button onClick={() => closeWindow(win.id)} className="control-btn close"><X size={14} /></button>
-        </div>
+        <div className="window-spacer"></div>
       </div>
       <div className="window-content">
         {React.createElement(win.component, { windowId: win.id })}

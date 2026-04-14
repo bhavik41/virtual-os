@@ -52,7 +52,14 @@ export default function TerminalApp() {
         } else if (cmd === 'whoami') {
           output = 'guest';
         } else if (cmd === 'echo') {
-          output = args.slice(1).join(' ');
+          const redirIdx = args.indexOf('>');
+          if (redirIdx !== -1 && args.length > redirIdx + 1) {
+            const content = args.slice(1, redirIdx).join(' ').replace(/^["']|["']$/g, '');
+            const target = resolvePath(args[redirIdx + 1]);
+            createNode(target, { type: 'file', content });
+          } else {
+            output = args.slice(1).join(' ').replace(/^["']|["']$/g, '');
+          }
         } else if (cmd === 'pwd') {
           output = cwd;
         } else if (cmd === 'ls') {

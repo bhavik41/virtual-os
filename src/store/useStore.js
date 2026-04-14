@@ -33,6 +33,13 @@ export const useStore = create((set) => ({
     return { fs: newFs };
   }),
 
+  updateFileContent: (path, content) => set((state) => {
+    if (state.fs[path] && state.fs[path].type === 'file') {
+      return { fs: { ...state.fs, [path]: { ...state.fs[path], content } } };
+    }
+    return state;
+  }),
+
   // Window Management
   openApp: (app) => set((state) => {
     const existing = state.windows.find(w => w.appId === app.id);

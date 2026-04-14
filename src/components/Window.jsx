@@ -48,11 +48,11 @@ export default function Window({ window: win }) {
       style={style}
       size={{
         width: win.isMaximized ? '100vw' : win.width,
-        height: win.isMaximized ? 'calc(100vh - 48px)' : win.height
+        height: win.isMaximized ? 'calc(100vh - 28px)' : win.height
       }}
       position={{
         x: win.isMaximized ? 0 : win.x,
-        y: win.isMaximized ? 0 : win.y
+        y: win.isMaximized ? 28 : Math.max(28, win.y)
       }}
       onDragStop={handleDragStop}
       onResizeStop={handleResizeStop}

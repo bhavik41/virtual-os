@@ -28,3 +28,9 @@ If you are developing a production application, we recommend using TypeScript wi
 npm install
 npm run dev
 ```
+
+## Roadmap
+- [ ] Multi-user mode
+- [ ] Cloud file sync
+- [ ] Plugin system
+- [ ] Mobile support

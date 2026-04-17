@@ -1,5 +1,6 @@
 import React from 'react';
 import { Rnd } from 'react-rnd';
+import { motion } from 'framer-motion';
 import { useStore } from '../store/useStore';
 import { Minus, Square, X, Maximize2 } from 'lucide-react';
 import './Window.css';
@@ -18,17 +19,8 @@ export default function Window({ window: win }) {
 
   if (win.isMinimized) return null;
 
-  const style = {
-    display: 'flex',
-    flexDirection: 'column',
-    backgroundColor: 'rgba(30, 30, 30, 0.85)',
-    backdropFilter: 'blur(12px)',
-    borderRadius: win.isMaximized ? '0' : '12px',
-    boxShadow: isActive ? '0 10px 40px rgba(0,0,0,0.5)' : '0 4px 20px rgba(0,0,0,0.3)',
-    border: '1px solid rgba(255, 255, 255, 0.1)',
-    overflow: 'hidden',
+  const rndStyle = {
     zIndex: win.zIndex,
-    transition: 'box-shadow 0.2s ease',
   };
 
   const handleDragStop = (e, d) => {
@@ -45,7 +37,7 @@ export default function Window({ window: win }) {
 
   return (
     <Rnd
-      style={style}
+      style={rndStyle}
       size={{
         width: win.isMaximized ? '100vw' : win.width,
         height: win.isMaximized ? 'calc(100vh - 28px)' : win.height
@@ -64,20 +56,50 @@ export default function Window({ window: win }) {
       minWidth={300}
       minHeight={200}
     >
-      <div className={`window-header ${isActive ? 'active' : ''}`} onDoubleClick={() => maximizeWindow(win.id)}>
-        <div className="window-controls-mac">
-          <button onClick={() => closeWindow(win.id)} className="mac-btn close"></button>
-          <button onClick={() => minimizeWindow(win.id)} className="mac-btn minimize"></button>
-          <button onClick={() => maximizeWindow(win.id)} className="mac-btn maximize"></button>
+      <motion.div
+        className="window-container-motion"
+        initial={{ scale: 0.9, opacity: 0, y: 15 }}
+        animate={{ 
+          scale: 1, 
+          opacity: 1, 
+          y: 0,
+        }}
+        transition={{ 
+          type: 'spring', 
+          stiffness: 300, 
+          damping: 22 
+        }}
+        style={{
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          backgroundColor: 'rgba(24, 24, 30, 0.82)',
+          backdropFilter: 'blur(20px)',
+          borderRadius: win.isMaximized ? '0' : '12px',
+          boxShadow: isActive 
+            ? '0 24px 60px rgba(0, 0, 0, 0.65), 0 0 1px rgba(255, 255, 255, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)' 
+            : '0 8px 30px rgba(0, 0, 0, 0.4), 0 0 1px rgba(255, 255, 255, 0.15)',
+          border: '1px solid rgba(255, 255, 255, 0.08)',
+          overflow: 'hidden',
+          transition: 'box-shadow 0.3s ease, border-color 0.3s ease',
+        }}
+      >
+        <div className={`window-header ${isActive ? 'active' : ''}`} onDoubleClick={() => maximizeWindow(win.id)}>
+          <div className="window-controls-mac">
+            <button onClick={() => closeWindow(win.id)} className="mac-btn close"></button>
+            <button onClick={() => minimizeWindow(win.id)} className="mac-btn minimize"></button>
+            <button onClick={() => maximizeWindow(win.id)} className="mac-btn maximize"></button>
+          </div>
+          <div className="window-title-mac">
+            <span>{win.title}</span>
+          </div>
+          <div className="window-spacer"></div>
         </div>
-        <div className="window-title-mac">
-          <span>{win.title}</span>
+        <div className="window-content">
+          {React.createElement(win.component, { windowId: win.id })}
         </div>
-        <div className="window-spacer"></div>
-      </div>
-      <div className="window-content">
-        {React.createElement(win.component, { windowId: win.id })}
-      </div>
+      </motion.div>
     </Rnd>
   );
 }

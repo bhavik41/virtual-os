@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { useStore } from '../store/useStore';
 import Window from './Window';
 import MenuBar from './MenuBar';
@@ -15,6 +16,25 @@ export default function Desktop() {
     return () => clearInterval(timer);
   }, []);
 
+  // Startup Auto-launch logic
+  useEffect(() => {
+    const browserApp = apps.find(a => a.id === 'browser');
+    const editorApp = apps.find(a => a.id === 'editor');
+    
+    // Auto-open Safari browser dashboard
+    if (browserApp) {
+      openApp(browserApp);
+    }
+    
+    // Auto-open VS Code with a slight delay for aesthetic flow
+    if (editorApp) {
+      const timer = setTimeout(() => {
+        openApp(editorApp);
+      }, 600);
+      return () => clearTimeout(timer);
+    }
+  }, [openApp]);
+
   return (
     <div className="desktop">
       <MenuBar time={time} />
@@ -28,12 +48,19 @@ export default function Desktop() {
       <div className="desktop-content">
         <div className="desktop-icons">
           {apps.map(app => (
-            <div key={app.id} className="desktop-icon" onDoubleClick={() => openApp(app)}>
+            <motion.div 
+              key={app.id} 
+              className="desktop-icon" 
+              onDoubleClick={() => openApp(app)}
+              whileHover={{ scale: 1.08, y: -3 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: 'spring', stiffness: 350, damping: 15 }}
+            >
               <div className="icon-container">
                 {React.createElement(app.icon, { size: 28, strokeWidth: 1.5 })}
               </div>
               <span>{app.title}</span>
-            </div>
+            </motion.div>
           ))}
         </div>
         

@@ -107,3 +107,5 @@ export default function Window({ window: win }) {
 // Snap logic: detect edges and snap window position
 
 // clamp(x, 0, screen.width) applied on drag
+
+// touch event listeners added for resize handle

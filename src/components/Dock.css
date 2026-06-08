@@ -79,3 +79,9 @@
 .window.focused {
   box-shadow: 0 0 0 2px var(--accent), 0 25px 60px rgba(0,0,0,0.7);
 }
+
+.menubar {
+  backdrop-filter: blur(20px);
+  background: rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}

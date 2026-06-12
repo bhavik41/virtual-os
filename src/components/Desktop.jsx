@@ -77,3 +77,5 @@ export default function Desktop() {
 // Keyboard shortcut: Cmd+W closes active window
 
 // React.lazy() applied to all app components
+
+// React.memo applied to icon grid

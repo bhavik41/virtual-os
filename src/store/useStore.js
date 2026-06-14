@@ -275,3 +275,5 @@ export const useStore = create((set) => ({
 // bringToFront: increments z-index of focused window
 
 // useMemo applied to windowList selector
+
+// check: if app already open, focus instead of open new

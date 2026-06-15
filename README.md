@@ -34,3 +34,5 @@ npm run dev
 - [ ] Cloud file sync
 - [ ] Plugin system
 - [ ] Mobile support
+
+> A macOS-inspired virtual desktop built with React + Vite.
